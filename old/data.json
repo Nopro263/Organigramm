@@ -1,0 +1,49 @@
+{
+    "title": "Top Level",
+    "levels": [
+        {
+            "title": "Top Level",
+            "list": [
+                "a",
+                "b"
+            ]
+        },
+        {
+            "title": "Top Level",
+            "levels": [
+                {
+                    "title": "Top Level",
+                    "list": [
+                        "a",
+                        "b"
+                    ]
+                },
+                {
+                    "title": "Top Level",
+                    "levels": [
+                        {
+                            "title": "X",
+                            "list": [
+                                "a",
+                                "b"
+                            ]
+                        },
+                        {
+                            "title": "Y",
+                            "list": [
+                                "a",
+                                "b"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Top Level",
+                    "list": [
+                        
+                    ]
+                }
+            ]
+        }
+    ]
+}

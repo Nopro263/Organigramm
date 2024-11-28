@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script type="module" src="index.js" defer></script>
+</head>
+<body>
+    <div class="parent root">
+        <div class="element">HEADER</div>
+        <div class="children top">
+            <div class="parent">
+                <div class="element">CHILD1</div>
+                <div class="children list">
+                    <div class="parent">
+                        <div class="element">CHILD1-a</div>
+                        <div class="children list hidden">
+                            <div class="parent">
+                                <div class="element">CHILD1-a-a</div>
+                                <div class="children top"></div>
+                            </div>
+                            <div class="parent">
+                                <div class="element">CHILD1-a-b</div>
+                                <div class="children top"></div>
+                            </div>
+                            <div class="parent">
+                                <div class="element">CHILD1-a-c</div>
+                                <div class="children top"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="parent">
+                        <div class="element">CHILD1-b</div>
+                        <div class="children top"></div>
+                    </div>
+                    <div class="parent">
+                        <div class="element">CHILD1-c</div>
+                        <div class="children top"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent">
+                <div class="element">CHILD2</div>
+                <div class="children top"></div>
+            </div>
+            <div class="parent">
+                <div class="element">CHILD3</div>
+                <div class="children top"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

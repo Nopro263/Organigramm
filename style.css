@@ -1,0 +1,113 @@
+.parent {
+    /*padding-left: 1em;*/
+    /*width: 100%;*/
+
+    --margin: 1rem;
+
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+    width: fit-content;
+}
+
+.element {
+    min-width: fit-content;
+    text-align: center;
+    background-color: wheat;
+
+    padding: 1rem;
+}
+
+.children.top {
+    display: flex;
+    flex-wrap: wrap;
+
+    position: relative;
+    /*justify-content: space-around;*/
+}
+
+.children.list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /*justify-content: space-around;*/
+
+    position: relative;
+
+    --left: 1rem;
+}
+
+
+.children.list::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background-color: green;
+    left: var(--left);
+}
+
+
+.children.top > .parent {
+    --top: 2rem;
+
+    margin-top: var(--top);
+
+    position: relative;
+}
+
+.children.top > .parent::before {
+    content: "";
+    position: absolute;
+    height: var(--top);
+    width: 1px;
+    background-color: black;
+
+    top: calc(var(--top) * -1);
+    left: 50%;
+}
+
+.children.list > .parent {
+    margin-left: calc(var(--left) * 2);
+    margin-right: var(--left);
+    margin-top: var(--left);
+}
+
+.children.list > .parent > .element {
+    position: relative;
+}
+
+.children.list > .parent > .element::before {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: var(--left);
+    background-color: black;
+
+    top: 50%;
+    left: calc(var(--left) * -1);
+}
+
+
+
+/* Klappfunktion */
+
+.children.clickable.hidden {
+    visibility: collapse;
+    display: none;
+}
+
+.parent:has(> .children.clickable) > .element::after {
+    display: inline-block;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/%3E%3C/svg%3E");
+
+    width: 16px;
+    height: 16px;
+}
+
+.parent:has(> .children.clickable:not(.hidden)) > .element::after {
+    rotate: 180deg;
+}
+
+.parent:has(> .children.clickable.hidden) > .element::after {
+    rotate: 0deg;
+}

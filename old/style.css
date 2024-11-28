@@ -1,0 +1,103 @@
+#organigramm {
+    width: 90vw;
+    height: 50em;
+    background-color: blue;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+div {
+    font-size: 16px;
+}
+
+.title {
+    width: 100%;
+    background-color: red;
+}
+
+.levels {
+    display: flex;
+
+    position: relative;
+}
+
+.levels > .wrapper:not(.list) {
+    margin: 2em;
+    margin-top: 4em;
+    width: calc((100% / var(--levels)) - 2 * 2em);
+
+    position: relative;
+}
+
+
+.levels > .wrapper:not(.list)::before { /* vertical top */
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -2em;
+    background-color: black;
+    width: 2px;
+    height: 2em;
+}
+
+.levels:has(> .wrapper:not(.list))::before { /* horizontal  */
+    content: "";
+
+    position: absolute;
+    --space: calc(100% / var(--levels) / 2);
+    left: var(--space);
+    top: 2em;
+    background-color: black;
+    width: calc(100% - 2 * var(--space));
+    height: 2px;
+}
+
+.wrapper.list {
+    margin-left: 4em;
+    width: calc(100% - 4em);
+
+    position: relative;
+}
+
+.wrapper.list::before {
+    content: "";
+    position: absolute;
+    height: calc(100% - 0.67em * 4 + (var(--levels)) * 2px - 2px);
+    width: 2px;
+
+    background-color: black;
+    left: -2em;
+    top: 0;
+}
+
+.wrapper.list > .title {
+    position: relative;
+}
+
+.wrapper.list > .title::before { /* list horizontal */
+    content: "";
+    background-color: black;
+    height: 2px;
+    width: calc(2em / 2);
+    left: -1em;
+    top: 50%;
+
+    position: absolute;
+}
+
+.wrapper:not(.list) > .title {
+    margin: 0;
+    position: relative;
+}
+
+.wrapper:not(.list):not(:has(> .levels > .list)) > .title::after { /* Nur titel, weilche keine Listen beschreiben */ /* vertical bottom */
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    background-color: black;
+    width: 2px;
+    height: 2rem;
+}
